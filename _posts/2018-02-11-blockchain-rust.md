@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Implementing a Blockchain in Rust
-date:  2018-02-19 13:40:34 +0100
+date:  2018-02-11 13:40:34 +0100
 ---
 
 This is another one of those blog posts teaching you how to implement a simple,
