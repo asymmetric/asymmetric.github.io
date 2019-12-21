@@ -1,7 +1,6 @@
 title: asymmetric's blagh
-description: > # this means to ignore newlines until "baseurl:"
-        This is my blagh
-url: "http://asymmetric.github.io" # the base hostname & protocol for your site
+description: This is my blagh
+url: https://asymmetric.github.io # the base hostname & protocol for your site
 github_username:  asymmetric
 
 permalink: pretty
