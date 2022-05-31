@@ -119,8 +119,9 @@ And now:
 ### Potential mitigations
 
 The issue here is that paths in the store are input-addressed, meaning that
-once they're in the store, there's nothing (apart from signatures, but they're
-not relevant here) that prevents them from being tampered with.
+once they're in the store, there's nothing (apart from signatures, but they
+wouldn't provide any further protection here) that prevents them from being
+tampered with.
 
 Another option (still partly in the works, AFAIU) are proper [content-addressed
 paths](https://github.com/tweag/rfcs/blob/cas-rfc/rfcs/0062-content-addressed-paths.md).
@@ -170,4 +171,4 @@ CA derivations provide a mitigation for this usecase, and they rely on the secur
 
 It's important to be aware of this when evaluating a nix build infrastructure.
 
-[^1]: I haven't shown this for brevity, but the `nix copy` command showed an error for the `narSize` mismatch.
+[^0]: I haven't shown this for brevity, but the `nix copy` command showed an error for the `narSize` mismatch.
