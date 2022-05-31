@@ -73,7 +73,7 @@ The key thing here is that in Nix, hashes are stored/displayed in many different
 
 I have no idea why this is the case, and it is very confusing.
 
-So in the interest of clarity, I'll convert all hashes we're dealing with in their SRI form (using `nix hash to-sri`):
+So in the interest of clarity, I'll provide the SRI form (using `nix hash to-sri`) of the two hashes above:
 
 - `specified` : `sha256-HOJg9QIoLCBN6fzpd/gTfBQNhBlE0ycNS0DkjJOZh4A=`
 - `got`: `sha256-HQm86KUSV14rqFxgNJsG3JgEqIgmoTP2x7kTiJsKnEY=`
@@ -96,10 +96,9 @@ sha256-HQm86KUSV14rqFxgNJsG3JgEqIgmoTP2x7kTiJsKnEY=
 Two things to note:
 
 - The store path is actually copied over to the remote host, but it is **not** added to its nix db's `ValidPaths` table, thereby making it invisible.
-It turns out that the `narHash` comparison is actually performed by the kkkk
 - The `narHash` check is performed by the remote store
 
-An attacker could, at this point, modify the `narHash` (and the `narSize`) in the local Nix db:
+An attacker could, at this point, modify the `narHash` (and the `narSize`[^0]) in the local Nix db:
 
 ```sql
 sqlite> UPDATE ValidPaths
@@ -171,3 +170,4 @@ CA derivations provide a mitigation for this usecase, and they rely on the secur
 
 It's important to be aware of this when evaluating a nix build infrastructure.
 
+[^1]: I haven't shown this for brevity, but the `nix copy` command showed an error for the `narSize` mismatch.
