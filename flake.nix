@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
   };
 
   outputs = { self, nixpkgs, ... }:
@@ -13,7 +13,9 @@
       devShell.${system} = pkgs.mkShell {
         inherit name;
         buildInputs = with pkgs; [
-          ruby_3_1 gcc cmake
+          ruby_3_1
+          gcc
+          cmake
         ];
       };
     };
